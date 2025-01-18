@@ -30,10 +30,10 @@ jobs:
       - name: Build for All Platforms
         run: |
           mkdir -p dist
-          GOOS=linux   GOARCH=amd64 go build -o dist/to_markdown-linux-amd64 ./cmd/to_markdown
-          GOOS=darwin  GOARCH=amd64 go build -o dist/to_markdown-darwin-amd64 ./cmd/to_markdown
-          GOOS=darwin  GOARCH=arm64 go build -o dist/to_markdown-darwin-arm64 ./cmd/to_markdown
-          GOOS=windows GOARCH=amd64 go build -o dist/to_markdown-windows-amd64.exe ./cmd/to_markdown
+          GOOS=linux   GOARCH=amd64 go build -o dist/to_md-linux-amd64 ./cmd/to_md
+          GOOS=darwin  GOARCH=amd64 go build -o dist/to_md-darwin-amd64 ./cmd/to_md
+          GOOS=darwin  GOARCH=arm64 go build -o dist/to_md-darwin-arm64 ./cmd/to_md
+          GOOS=windows GOARCH=amd64 go build -o dist/to_md-windows-amd64.exe ./cmd/to_md
 
       - name: Generate Checksums
         run: |
@@ -48,14 +48,14 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          name: "to_markdown release ${{ github.ref_name }}" # Uses the tag name (e.g., v1.0.1)
+          name: "to_md release ${{ github.ref_name }}" # Uses the tag name (e.g., v1.0.1)
           body_path: ./release_notes.md
 
           files: |
-            dist/to_markdown-linux-amd64
-            dist/to_markdown-darwin-amd64
-            dist/to_markdown-darwin-arm64
-            dist/to_markdown-windows-amd64.exe
+            dist/to_md-linux-amd64
+            dist/to_md-darwin-amd64
+            dist/to_md-darwin-arm64
+            dist/to_md-windows-amd64.exe
             dist/checksums.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

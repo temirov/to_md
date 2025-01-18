@@ -6,18 +6,18 @@
 The files need to be made executable after the download
 
 ```shell
-chmod +x to_markdown-darwin-amd64
+chmod +x to_md-darwin-amd64
 ```
 
 NB If you are on Mac, remove quarantine attributes added by macOS
 
 ```shell
-xattr -d com.apple.quarantine to_markdown-darwin-amd64
+xattr -d com.apple.quarantine to_md-darwin-amd64
 ```
 
-### **`to_markdown` Utility**
+### **`to_md` Utility**
 
-The **`to_markdown`** utility is a command-line tool designed to **clean and convert HTML or Markdown files** into **clean Markdown format**. It processes raw HTML and Markdown files, removing unnecessary comments, metadata, and unsupported tags, ensuring the output is well-structured and ready for use in documentation or publishing.
+The **`to_md`** utility is a command-line tool designed to **clean and convert HTML or Markdown files** into **clean Markdown format**. It processes raw HTML and Markdown files, removing unnecessary comments, metadata, and unsupported tags, ensuring the output is well-structured and ready for use in documentation or publishing.
 
 ---
 
@@ -48,19 +48,19 @@ The **`to_markdown`** utility is a command-line tool designed to **clean and con
 1. **Build the Binary:**
 
 ```bash
-go build -o bin/to_markdown ./cmd/to_markdown
+go build -o bin/to_md ./cmd/to_md
 ```
 
 2. **Move to Path (Optional):**
 
 ```bash
-sudo mv bin/to_markdown /usr/local/bin/
+sudo mv bin/to_md /usr/local/bin/
 ```
 
 3. **Verify Installation:**
 
 ```bash
-to_markdown --help
+to_md --help
 ```
 
 ---
@@ -68,7 +68,7 @@ to_markdown --help
 ### **Usage**
 
 ```bash
-to_markdown input.[html|md] output.md
+to_md input.[html|md] output.md
 ```
 
 - **Input File:**
@@ -79,13 +79,13 @@ to_markdown input.[html|md] output.md
 **Example 1: HTML to Clean Markdown**
 
 ```bash
-to_markdown input.html output.md
+to_md input.html output.md
 ```
 
 **Example 2: Markdown Cleanup**
 
 ```bash
-to_markdown input.md output.md
+to_md input.md output.md
 ```
 
 ---
